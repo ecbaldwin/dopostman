@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "f910baed-ad82-463d-98c3-6d0b1193be5a",
+		"name": "DigitalOcean",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"description": "",
+			"item": [
+				{
+					"name": "Get User Information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{endpoint}}/account",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actions",
+			"description": "",
+			"item": [
+				{
+					"name": "List all Actions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{endpoint}}/actions",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"actions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an existing Action",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{endpoint}}/actions/{{action_id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"actions",
+								"{{action_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Droplets",
+			"description": "",
+			"item": [
+				{
+					"name": "Create a new Droplet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"{{droplet_name}}\",\n\t\"region\": \"{{region}}\",\n\t\"size\": \"{{droplet_size}}\",\n\t\"image\": \"{{image_slug}}\",\n\t\"ssh_keys\": [\"{{ssh_key_fingerprint}}\"],\n\t\"backups\": false,\n\t\"ipv6\": true,\n\t\"user_data\": null,\n\t\"private_networking\": null,\n\t\"volumes\": null,\n\t\"tags\": []\n}"
+						},
+						"url": {
+							"raw": "{{endpoint}}/droplets",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"droplets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an existing Droplet by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{endpoint}}/droplets/{{droplet_id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"droplets",
+								"{{droplet_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all Droplets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{endpoint}}/droplets",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"droplets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all available Kernels for a Droplet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{endpoint}}/droplets/{{droplet_id}}/kernels",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"droplets",
+								"{{droplet_id}}",
+								"kernels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List actions for a Droplet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{endpoint}}/droplets/{{droplet_id}}/actions",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"droplets",
+								"{{droplet_id}}",
+								"actions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Droplet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{endpoint}}/droplets/{{droplet_id}}",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"droplets",
+								"{{droplet_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"description": "",
+			"item": [
+				{
+					"name": "List all Images",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"{{droplet_name}}\",\n  \"region\": \"{{region}}\",\n  \"size\": \"{{droplet_size}}\",\n  \"image\": \"{{droplet_image}}\",\n  \"ssh_keys\": [\"{{ssh_key_id}}\"],\n  \"backups\": false,\n  \"ipv6\": true,\n  \"user_data\": null,\n  \"private_networking\": null,\n  \"volumes\": null,\n  \"tags\": []\n}"
+						},
+						"url": {
+							"raw": "{{endpoint}}/images",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all Distribution Images",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"{{droplet_name}}\",\n  \"region\": \"{{region}}\",\n  \"size\": \"{{droplet_size}}\",\n  \"image\": \"{{droplet_image}}\",\n  \"ssh_keys\": [\"{{ssh_key_id}}\"],\n  \"backups\": false,\n  \"ipv6\": true,\n  \"user_data\": null,\n  \"private_networking\": null,\n  \"volumes\": null,\n  \"tags\": []\n}"
+						},
+						"url": {
+							"raw": "{{endpoint}}/images?type=distribution",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"images"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "distribution"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Regions",
+			"description": "",
+			"item": [
+				{
+					"name": "List all Regions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"{{droplet_name}}\",\n  \"region\": \"{{region}}\",\n  \"size\": \"{{droplet_size}}\",\n  \"image\": \"{{droplet_image}}\",\n  \"ssh_keys\": [\"{{ssh_key_id}}\"],\n  \"backups\": false,\n  \"ipv6\": true,\n  \"user_data\": null,\n  \"private_networking\": null,\n  \"volumes\": null,\n  \"tags\": []\n}"
+						},
+						"url": {
+							"raw": "{{endpoint}}/regions",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"regions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SSH Keys",
+			"description": "",
+			"item": [
+				{
+					"name": "List all Keys",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4b01cd5c-1147-490a-80c9-7536a844c05a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"{{droplet_name}}\",\n  \"region\": \"{{region}}\",\n  \"size\": \"{{droplet_size}}\",\n  \"image\": \"{{droplet_image}}\",\n  \"ssh_keys\": [\"{{ssh_key_id}}\"],\n  \"backups\": false,\n  \"ipv6\": true,\n  \"user_data\": null,\n  \"private_networking\": null,\n  \"volumes\": null,\n  \"tags\": []\n}"
+						},
+						"url": {
+							"raw": "{{endpoint}}/account/keys",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"account",
+								"keys"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "45705b42-4794-492d-9922-976cb3572c70",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e57ce93d-485e-437a-9f55-4cdb26540b87",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
